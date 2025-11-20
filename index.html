@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苍月草魔法小铺</title>
+    <style>
+        /* --- 全局变量与重置 --- */
+        :root {
+            --bg-color: #fdfdfb; /* 羊皮纸白 */
+            --primary-gold: #d4af37; /* 魔法金 */
+            --magic-purple: #e6e6fa; /* 淡紫 */
+            --accent-blue: #6a8caf; /* 芙莉莲眼瞳色调 */
+            --text-color: #4a4a4a;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif; /* 衬线字体增加文学感 */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-image: radial-gradient(#eef1f5 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* --- 头部设计 --- */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, #ffffff, var(--bg-color));
+            border-bottom: 2px solid var(--primary-gold);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--accent-blue);
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(106, 140, 175, 0.2);
+        }
+
+        p.subtitle {
+            font-style: italic;
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        /* --- 主要内容区 --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* --- 卡片设计 (核心风格) --- */
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid #eee;
+            border-radius: 15px;
+            width: 300px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        /* 悬停特效：模仿魔法浮起 */
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(106, 140, 175, 0.2);
+            border-color: var(--accent-blue);
+        }
+
+        /* 装饰性光环 */
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--magic-purple) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .product-card:hover::before {
+            opacity: 0.3;
+        }
+
+        .card-content {
+            position: relative; /* 确保内容在光环之上 */
+            z-index: 1;
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            font-weight: bold;
+            margin: 15px 0;
+            display: block;
+        }
+
+        .description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 25px;
+            min-height: 60px;
+        }
+
+        /* --- 按钮设计 --- */
+        .btn {
+            display: inline-block;
+            padding: 10px 30px;
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: bold;
+            background: white;
+        }
+
+        .btn:hover {
+            background: var(--accent-blue);
+            color: white;
+            box-shadow: 0 0 15px var(--magic-purple);
+        }
+
+        /* --- 页脚 --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 0.8rem;
+            margin-top: 50px;
+            border-top: 1px solid #eee;
+        }
+
+        /* --- 装饰元素 --- */
+        .decoration-flower {
+            position: absolute;
+            opacity: 0.1;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>苍月草魔法小铺</h1>
+        <p class="subtitle">“只是为了寻找那个哪怕只有万分之一可能的奇迹。”</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="product-card">
+            <div class="card-content">
+                <span class="icon">📘</span>
+                <h3>全知贤者之书</h3>
+                <span class="price">¥100 / 年</span>
+                <p class="description">
+                    如同赫伊纳特一般渊博的知识库。
+                    <br>解锁更强大的思考魔法。
+                </p>
+                <a href="#" class="btn">获取魔法</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="card-content">
+                <span class="icon">🕊️</span>
+                <h3>风行者之杖</h3>
+                <span class="price">¥20 / 月</span>
+                <p class="description">
+                    跨越障壁的疾风魔法。
+                    <br>稳定、轻盈、迅捷。
+                </p>
+                <a href="#" class="btn">获取魔法</a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2025 辛美尔的遗产 | 仅供魔法使交流使用</p>
+    </footer>
+
+</body>
+</html>
